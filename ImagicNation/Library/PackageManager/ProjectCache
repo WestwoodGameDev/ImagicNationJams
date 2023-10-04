@@ -5,29 +5,29 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638314482049394625
-    m_Hash: 848660938
+      ticks: 638320522686531653
+    m_Hash: 4204546768
   m_LockFileStatus:
     m_FilePath: C:/Users/s125094/Documents/GitHub/ImagicNationJams/ImagicNation/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638314482693066869
-    m_Hash: 552752024
+      ticks: 638320523385482984
+    m_Hash: 180398246
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
   m_LocalFileStatus: []
 m_ProjectPath: C:/Users/s125094/Documents/GitHub/ImagicNationJams/ImagicNation/Packages
-m_EditorVersion: 2022.3.7f1 (b16b3b16c7a0)
+m_EditorVersion: 2022.3.8f1 (b5eafc012955)
 m_ResolvedPackages:
-- packageId: com.unity.collab-proxy@2.0.5
+- packageId: com.unity.collab-proxy@2.0.7
   testable: 0
   isDirectDependency: 1
-  version: 2.0.5
+  version: 2.0.7
   source: 1
-  resolvedPath: C:\Users\s125094\Documents\GitHub\ImagicNationJams\ImagicNation\Library\PackageCache\com.unity.collab-proxy@2.0.5
+  resolvedPath: C:\Users\s125094\Documents\GitHub\ImagicNationJams\ImagicNation\Library\PackageCache\com.unity.collab-proxy@2.0.7
   assetPath: Packages/com.unity.collab-proxy
   name: com.unity.collab-proxy
   displayName: Version Control
@@ -114,7 +114,6 @@ m_ResolvedPackages:
     - 2.1.0-preview.6
     - 2.1.0
     compatible:
-    - 2.0.5
     - 2.0.7
     - 2.1.0-preview.3
     - 2.1.0-preview.5
@@ -149,16 +148,16 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638218079810000000
+  datePublishedTicks: 638264754080000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.collab-proxy@2.0/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.cloud.collaborate.git
-    revision: 7f68049e8cae5b51ad0d17cc01b8c6e802bf3866
+    revision: 13a0e74f47307a1b20a57747cea59891ce36a647
     path: 
   unityLifecycle:
-    version: 2.0.5
+    version: 2.0.7
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
@@ -231,7 +230,7 @@ m_ResolvedPackages:
   - name: com.unity.modules.animation
     version: 1.0.0
   - name: com.unity.burst
-    version: 1.8.7
+    version: 1.8.8
   - name: com.unity.collections
     version: 1.2.4
   - name: com.unity.test-framework
@@ -1015,12 +1014,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.visualscripting@1.8.0
+- packageId: com.unity.visualscripting@1.9.0
   testable: 0
   isDirectDependency: 1
-  version: 1.8.0
+  version: 1.9.0
   source: 1
-  resolvedPath: C:\Users\s125094\Documents\GitHub\ImagicNationJams\ImagicNation\Library\PackageCache\com.unity.visualscripting@1.8.0
+  resolvedPath: C:\Users\s125094\Documents\GitHub\ImagicNationJams\ImagicNation\Library\PackageCache\com.unity.visualscripting@1.9.0
   assetPath: Packages/com.unity.visualscripting
   name: com.unity.visualscripting
   displayName: Visual Scripting
@@ -1066,10 +1065,9 @@ m_ResolvedPackages:
     - 1.9.0
     - 1.9.1
     compatible:
-    - 1.8.0
     - 1.9.0
     - 1.9.1
-    recommended: 1.8.0
+    recommended: 1.9.1
     deprecated:
     - 1.8.0-pre.1
   dependencies:
@@ -1097,16 +1095,16 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638060044680000000
+  datePublishedTicks: 638267547090000000
   documentationUrl: 
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.visualscripting.git
-    revision: 0de66378b19e990494d98f39ecc2b6aa5ac65351
+    revision: 21b38599b7fcf9bdccd964bdb90710e6a1094810
     path: 
   unityLifecycle:
-    version: 1.8.0
+    version: 1.9.0
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
@@ -3201,6 +3199,7 @@ m_ResolvedPackages:
     - 7.0.9
     - 7.0.10
     - 7.0.11
+    - 7.0.12
     - 8.0.0-pre.3
     - 8.0.0-pre.4
     - 8.0.0
@@ -3254,7 +3253,7 @@ m_ResolvedPackages:
   - name: com.unity.modules.animation
     version: 1.0.0
   - name: com.unity.burst
-    version: 1.8.7
+    version: 1.8.8
   - name: com.unity.collections
     version: 1.2.4
   - name: com.unity.test-framework
@@ -3498,7 +3497,7 @@ m_ResolvedPackages:
   - name: com.unity.modules.animation
     version: 1.0.0
   - name: com.unity.burst
-    version: 1.8.7
+    version: 1.8.8
   - name: com.unity.collections
     version: 1.2.4
   - name: com.unity.test-framework
@@ -3726,7 +3725,7 @@ m_ResolvedPackages:
   - name: com.unity.modules.animation
     version: 1.0.0
   - name: com.unity.burst
-    version: 1.8.7
+    version: 1.8.8
   - name: com.unity.modules.physics2d
     version: 1.0.0
   keywords:
@@ -3891,6 +3890,7 @@ m_ResolvedPackages:
     - 2.2.4
     - 2.2.5
     - 2.2.6
+    - 2.2.7
     - 3.0.0
     - 3.0.1
     - 3.0.2
@@ -4020,7 +4020,7 @@ m_ResolvedPackages:
   - name: com.unity.modules.animation
     version: 1.0.0
   - name: com.unity.burst
-    version: 1.8.7
+    version: 1.8.8
   keywords:
   - 2d
   - Aseprite
@@ -4155,7 +4155,7 @@ m_ResolvedPackages:
   - name: com.unity.modules.animation
     version: 1.0.0
   - name: com.unity.burst
-    version: 1.8.7
+    version: 1.8.8
   keywords:
   - 2d
   registry:
@@ -4362,7 +4362,7 @@ m_ResolvedPackages:
     version: 1.1.31
   resolvedDependencies:
   - name: com.unity.burst
-    version: 1.8.7
+    version: 1.8.8
   - name: com.unity.mathematics
     version: 1.2.6
   - name: com.unity.test-framework
@@ -4403,12 +4403,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.burst@1.8.7
+- packageId: com.unity.burst@1.8.8
   testable: 0
   isDirectDependency: 0
-  version: 1.8.7
+  version: 1.8.8
   source: 1
-  resolvedPath: C:\Users\s125094\Documents\GitHub\ImagicNationJams\ImagicNation\Library\PackageCache\com.unity.burst@1.8.7
+  resolvedPath: C:\Users\s125094\Documents\GitHub\ImagicNationJams\ImagicNation\Library\PackageCache\com.unity.burst@1.8.8
   assetPath: Packages/com.unity.burst
   name: com.unity.burst
   displayName: Burst
@@ -4549,7 +4549,6 @@ m_ResolvedPackages:
     - 1.8.8
     - 1.8.9
     compatible:
-    - 1.8.7
     - 1.8.8
     - 1.8.9
     recommended: 1.8.9
@@ -4571,16 +4570,16 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638221796120000000
+  datePublishedTicks: 638271934420000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.burst@1.8/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: git@github.cds.internal.unity3d.com:unity/burst
-    revision: 47aa5e222ec0a9e94b78af0bb63021cf722ad06b
+    revision: 7673d9a736112fc9d58f32024c19150c2fa6d8ea
     path: 
   unityLifecycle:
-    version: 1.8.7
+    version: 1.8.8
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
