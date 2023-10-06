@@ -410,8 +410,10 @@ MonoBehaviour:
   canJump: 1
   hp: 5
   freeze: 0
+  iFrame: 0
   self: {fileID: 7870755818791782517}
   rb: {fileID: 751802480584191193}
+  spells: 
   horiz: 0
 --- !u!114 &1196178082638246940
 MonoBehaviour:
@@ -1289,6 +1291,7 @@ GameObject:
   - component: {fileID: 2148233139443735183}
   - component: {fileID: 197689210505385416}
   - component: {fileID: 1196178082638246940}
+  - component: {fileID: 7843604330027149384}
   m_Layer: 0
   m_Name: zlime
   m_TagString: enemy
@@ -1450,6 +1453,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7843604330027149384
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6519194170757611738}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3670567c40c05c0459223132b1236687, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7870755818791782517
 GameObject:
   m_ObjectHideFlags: 0

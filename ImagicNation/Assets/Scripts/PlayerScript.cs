@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    /*
+    ToDo:
+    Slime into trigger
+    Implement spell system
+    fireball
+    
+    */
+    //player values
     public int speed = 25;
     public int jumpPower = 20;
     public bool canJump = true;
     public int hp = 5;
+    //internal values
     public float freeze = 0;
+    public float iFrame = 0;
+    //identifiers
     public GameObject self;
     public Rigidbody2D rb;
+    //items
+    public bool[] spells;
+    //controls
     public float horiz;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +36,24 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if(freeze>0){
             freeze-=Time.deltaTime;
         }else{
             if(freeze<0){
                 freeze = 0;
             }
+            if(iFrame>0){
+                iFrame-=Time.deltaTime;
+            }else if(iFrame<0){
+                iFrame = 0;
+            }
             horiz = Input.GetAxis("Horizontal");
+            if(horiz>0){
+                this.transform.localScale = new Vector2(0.3f,0.3f);
+            }else if (horiz <0){
+                this.transform.localScale = new Vector2(-0.3f,0.3f);
+
+            }
             if (Input.GetKey("up") && canJump)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower);
@@ -63,12 +88,13 @@ public class PlayerScript : MonoBehaviour
             freeze = 1;
             hp--;
             rb.position = new Vector2(3, 1);
-        }else if(col.gameObject.CompareTag("enemy")){
+        }else if(col.gameObject.CompareTag("enemy") && iFrame <= 0){
             freeze = 0.2f;
+            iFrame = 2f;
             if(col.gameObject.transform.position.x>self.transform.position.x){
-                rb.velocity = new Vector2(-10,0);
+                rb.velocity = new Vector2(-10,rb.velocity.y/1.5f);
             }else{
-                rb.velocity = new Vector2(10,0);
+                rb.velocity = new Vector2(10,(rb.velocity.y/1.5f));
             }
         }
     }
@@ -86,6 +112,11 @@ public class PlayerScript : MonoBehaviour
         {
             //resets jump when on the floor
             canJump = false;
+        }
+    }
+    void onTriggerEnter(Collision2D col){
+        if(col.gameObject.CompareTag("spell")){
+
         }
     }
 }
