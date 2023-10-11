@@ -264,7 +264,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1000000
   m_LinearDrag: 0
-  m_AngularDrag: 1
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -433,6 +433,7 @@ MonoBehaviour:
   inRange: 0
   attack: 0
   cd: 0
+  atkVelo: 10
 --- !u!4 &1581267271398676452
 Transform:
   m_ObjectHideFlags: 0
@@ -1115,7 +1116,7 @@ Transform:
   m_GameObject: {fileID: 6519194170757611738}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.537, y: -2.5, z: -0.5}
+  m_LocalPosition: {x: -0.1, y: -2.41, z: -0.5}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
