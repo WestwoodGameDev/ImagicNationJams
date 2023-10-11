@@ -59,7 +59,7 @@ public class PlayerScript : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                 canJump = false;
             }
-            if(horiz == 0){
+            if(horiz == 0||(rb.velocity.x>0&&horiz<0)||(rb.velocity.y<0&&horiz>0)){
                 rb.velocity = new Vector2(0,rb.velocity.y);
             }
             rb.velocity = new Vector2(horiz*speed, rb.velocity.y);
@@ -88,7 +88,8 @@ public class PlayerScript : MonoBehaviour
             freeze = 1;
             hp--;
             rb.position = new Vector2(3, 1);
-        }else if(col.gameObject.CompareTag("enemy") && iFrame <= 0){
+        }
+        if(col.gameObject.CompareTag("enemy") && iFrame <= 0){
             freeze = 0.2f;
             iFrame = 2f;
             if(col.gameObject.transform.position.x>self.transform.position.x){
@@ -98,12 +99,21 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
-    void onCollisionStay2D(Collision2D col){
+    void OnCollisionStay2D(Collision2D col){
         
         if (col.gameObject.CompareTag("floor"))
         {
             //resets jump when on the floor
             canJump = true;
+        } 
+        if(col.gameObject.CompareTag("enemy") && iFrame <= 0){
+            freeze = 0.2f;
+            iFrame = 2f;
+            if(col.gameObject.transform.position.x>self.transform.position.x){
+                rb.velocity = new Vector2(-10,rb.velocity.y/1.5f);
+            }else{
+                rb.velocity = new Vector2(10,rb.velocity.y/1.5f);
+            }
         }
     }
     void onCollisionExit2D(Collision2D col){
