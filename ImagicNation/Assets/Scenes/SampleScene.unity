@@ -264,7 +264,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1000000
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -427,9 +427,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368123493bdbc2348b3bd24b1eeb331e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 
-  target: {fileID: 0}
+  self: {fileID: 6519194170757611738}
+  rb: {fileID: 197689210505385416}
+  type: slime
   inRange: 0
+  attack: 0
+  cd: 0
 --- !u!4 &1581267271398676452
 Transform:
   m_ObjectHideFlags: 0
