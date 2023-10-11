@@ -23,7 +23,9 @@ public class PlayerScript : MonoBehaviour
     public GameObject self;
     public Rigidbody2D rb;
     //items
-    public bool[] spells;
+    public bool[] spells = new bool[6] {false, false, false, false, false, false};
+    public GameObject fai;
+    // fai, ???
     //controls
     public float horiz;
 
@@ -71,6 +73,9 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector2(0,0);
             rb.position = new Vector2(3,1);
         }
+        if(Input.GetKeyDown("space")&&spells[0]){
+            Instantiate(fai, transform.position, transform.rotation);
+        }
 
     }
     void OnCollisionEnter2D(Collision2D col)
@@ -116,7 +121,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
-    void onCollisionExit2D(Collision2D col){
+    void OnCollisionExit2D(Collision2D col){
 
         if (col.gameObject.CompareTag("floor"))
         {
@@ -124,9 +129,10 @@ public class PlayerScript : MonoBehaviour
             canJump = false;
         }
     }
-    void onTriggerEnter(Collision2D col){
-        if(col.gameObject.CompareTag("spell")){
-
+    void OnTriggerEnter2D(Collider2D col){
+        if(col.gameObject.CompareTag("scroll")){
+            spells[col.gameObject.GetComponent<scrollSC>().num] = true;
+            Destroy(col.gameObject);
         }
     }
 }

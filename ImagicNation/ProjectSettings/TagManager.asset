@@ -7,6 +7,7 @@ TagManager:
   - death
   - floor
   - enemy
+  - scroll
   layers:
   - Default
   - TransparentFX

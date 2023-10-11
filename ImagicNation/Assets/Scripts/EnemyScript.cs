@@ -23,11 +23,12 @@ public class EnemyScript : MonoBehaviour
 
         //slime script
         if(type == "slime"){
-            if(cd<=0){
-                if(inRange&&attack>=0.66){
+            if(cd<=0&&inRange){
+                if(attack>=0.66){
                     attack = 0;
-                }else if(inRange){
-                    attack += Time.deltaTime;
+                }else{
+
+                attack += Time.deltaTime;
                 }
                 if(attack>=0.66){
                     cd = 5;
@@ -46,15 +47,15 @@ public class EnemyScript : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
-    public void onTriggerEnter(Collider col){
-    
+    public void OnTriggerEnter2D(Collider2D col){
+
     }
-    public void onTriggerStay(Collider col){
+    public void OnTriggerStay2D(Collider2D col){
         if(col.gameObject.name == "player"){
             inRange = true;
         }
     }
-    public void onTriggerExit(Collider col){
+    public void OnTriggerExit2D(Collider2D col){
         if(col.gameObject.name == "player"){
             inRange = false;
         }
