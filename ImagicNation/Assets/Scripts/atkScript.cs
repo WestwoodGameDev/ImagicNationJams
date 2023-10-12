@@ -6,11 +6,16 @@ public class atkScript : MonoBehaviour
 {
     public string type;
     public int direction = 1;
-
+    public float temp;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(GameObject.Find("player").GetComponent<Transform>().localScale.x<0){
+            direction = 1;
+        }else{
+            direction = -1;
+        }
+        this.transform.localScale = new Vector2(0.4f*direction,0.4f);
     }
 
     // Update is called once per frame

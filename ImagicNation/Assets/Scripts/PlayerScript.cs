@@ -23,7 +23,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject self;
     public Rigidbody2D rb;
     //items
-    public bool[] spells = new bool[6] {false, false, false, false, false, false};
+    public bool[] spells = new bool[6];
     public GameObject fai;
     // fai, ???
     //controls
