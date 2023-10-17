@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    public Animator anim;
     public GameObject self;   
     public Rigidbody2D rb;
     public string type;
@@ -26,13 +27,16 @@ public class EnemyScript : MonoBehaviour
             if(cd<=0&&inRange){
                 if(attack>=0.66){
                     attack = 0;
+                    anim.SetBool("attack", true);
                 }else{
 
                 attack += Time.deltaTime;
                 }
                 if(attack>=0.66){
+                    anim.SetBool("attack", false);
                     cd = 5;
                     rb.velocity = new Vector2(atkVelo, rb.velocity.y);
+
                 }
             }else{
                 cd -= Time.deltaTime;

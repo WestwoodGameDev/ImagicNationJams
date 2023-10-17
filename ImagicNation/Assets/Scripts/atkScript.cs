@@ -31,10 +31,10 @@ public class atkScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void OnTriggerStay2D(Collider2D col){
-        // if(col.gameObject.name == "bounds"){
+    void OnTriggerExit2D(Collider2D col){
+        if(col.gameObject.name == "bounds"){
             Debug.Log(col.gameObject.name);
             Destroy(gameObject);
-        // }
+        }
     }
 }
