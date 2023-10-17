@@ -16,6 +16,7 @@ public class atkScript : MonoBehaviour
             direction = -1;
         }
         this.transform.localScale = new Vector2(0.4f*direction,0.4f);
+        
     }
 
     // Update is called once per frame
@@ -24,9 +25,16 @@ public class atkScript : MonoBehaviour
        transform.Translate(Vector2.left*direction*Time.deltaTime*10);
  
     }
-    void OnCollisionEnter2D(Collision2D col){
+    void OnCollisionStay2D(Collision2D col){
         if(col.gameObject.name != "room"&&col.gameObject.name !="player"){
+            Debug.Log(col.gameObject.name);
             Destroy(gameObject);
         }
+    }
+    void OnTriggerStay2D(Collider2D col){
+        // if(col.gameObject.name == "bounds"){
+            Debug.Log(col.gameObject.name);
+            Destroy(gameObject);
+        // }
     }
 }

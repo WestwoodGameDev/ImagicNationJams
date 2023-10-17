@@ -74,7 +74,7 @@ public class PlayerScript : MonoBehaviour
             rb.position = new Vector2(3,1);
         }
         if(Input.GetKeyDown("space")&&spells[0]){
-            Instantiate(fai, transform.position, transform.rotation);
+            Instantiate(fai, transform.position+ new Vector3(this.transform.localScale.x, 0, 0), transform.rotation);
         }
 
     }
@@ -133,6 +133,14 @@ public class PlayerScript : MonoBehaviour
         if(col.gameObject.CompareTag("scroll")){
             spells[col.gameObject.GetComponent<scrollSC>().num] = true;
             Destroy(col.gameObject);
+        }
+    }
+    void OnTriggerExit2D(Collider2D col){
+        if(col.gameObject.name == "bounds"){
+            rb.velocity = new Vector2(0,0);
+            freeze = 1;
+            hp--;
+            rb.position = new Vector2(3, 1);
         }
     }
 }
