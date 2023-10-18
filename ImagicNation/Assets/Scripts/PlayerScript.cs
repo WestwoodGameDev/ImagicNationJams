@@ -39,29 +39,27 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         //cannot do anything if frozen
-        if(freeze>0){
-            freeze-=Time.deltaTime;
+        if(freeze > 0){
+            freeze -= Time.deltaTime;
         }else{
-            if(freeze<0){
+            if(freeze < 0){
                 freeze = 0;
             }
             //iFrame tickdown only if not frozen
-            if(iFrame>0){
-                iFrame-=Time.deltaTime;
-            }else if(iFrame<0){
+            if(iFrame > 0){
+                iFrame -= Time.deltaTime;
+            }else if(iFrame < 0){
                 iFrame = 0;
             }
             //get the direction that you are pressing (horiz)
             horiz = Input.GetAxis("Horizontal");
             //changes the direction that you are facing if you are pressing right or left
-            if(horiz>0){
-                this.transform.localScale = new Vector2(0.3f,0.3f);
-            }else if (horiz <0){
-                this.transform.localScale = new Vector2(-0.3f,0.3f);
+            if(horiz > 0){
+                this.transform.localScale = new Vector2(0.3f, 0.3f);
+            }else if (horiz < 0){
+                this.transform.localScale = new Vector2(-0.3f, 0.3f);
             }
 
-            //move w/ horiz
-            rb.velocity = new Vector2(horiz*speed, rb.velocity.y);
             //Jump if you press up key
             if (Input.GetKey("up") && canJump)
             {
@@ -69,20 +67,22 @@ public class PlayerScript : MonoBehaviour
                 canJump = false;
             }
             //
-            if(horiz == 0||(rb.velocity.x>0&&horiz<0)||(rb.velocity.y<0&&horiz>0)){
-                rb.velocity = new Vector2(0,rb.velocity.y);
+            if(horiz == 0 || (rb.velocity.x > 0 && horiz < 0) || (rb.velocity.y < 0 && horiz > 0)){
+                rb.velocity = new Vector2(0, rb.velocity.y);
             }
             //spell casting
-            if(Input.GetKeyDown("space")&&spells[0]){
-                Instantiate(fai, transform.position+ new Vector3(this.transform.localScale.x, 0, 0), transform.rotation);
+            if(Input.GetKeyDown("space") && spells[0]){
+                Instantiate(fai, transform.position + new Vector3(this.transform.localScale.x, 0, 0), transform.rotation);
             }
+            //move w/ horiz
+            rb.velocity = new Vector2(horiz * speed, rb.velocity.y);
         }
         
         //r key resets position
         if (Input.GetKey("r"))
         {
-            rb.velocity = new Vector2(0,0);
-            rb.position = new Vector2(3,1);
+            rb.velocity = new Vector2(0, 0);
+            rb.position = new Vector2(3, 1);
         }
 
     }
@@ -99,9 +99,9 @@ public class PlayerScript : MonoBehaviour
             freeze = 0.2f;
             iFrame = 1f;
             if(col.gameObject.transform.position.x>self.transform.position.x){
-                rb.velocity = new Vector2(-10,rb.velocity.y/1.5f);
+                rb.velocity = new Vector2(-10, rb.velocity.y / 1.5f);
             }else{
-                rb.velocity = new Vector2(10,(rb.velocity.y/1.5f));
+                rb.velocity = new Vector2(10, (rb.velocity.y / 1.5f));
             }
         }
     }
@@ -114,11 +114,11 @@ public class PlayerScript : MonoBehaviour
         } 
         if(col.gameObject.CompareTag("enemy") && iFrame <= 0){
             freeze = 0.2f;
-            iFrame = 2f;
+            iFrame = 1f;
             if(col.gameObject.transform.position.x>self.transform.position.x){
-                rb.velocity = new Vector2(-10,rb.velocity.y/1.5f);
+                rb.velocity = new Vector2(-10, rb.velocity.y / 1.5f);
             }else{
-                rb.velocity = new Vector2(10,rb.velocity.y/1.5f);
+                rb.velocity = new Vector2(10, rb.velocity.y / 1.5f);
             }
         }
     }
@@ -139,7 +139,7 @@ public class PlayerScript : MonoBehaviour
         {
             //death 
             //switch to triggers?
-            rb.velocity = new Vector2(0,0);
+            rb.velocity = new Vector2(0, 0);
             freeze = 1;
             hp--;
             rb.position = new Vector2(3, 1);
@@ -147,8 +147,8 @@ public class PlayerScript : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D col){
         if(col.gameObject.name == "bounds"){
-            rb.velocity = new Vector2(0,0);
-            freeze = 1;
+            rb.velocity = new Vector2(0, 0);
+            freeze = 0.5f;
             hp--;
             rb.position = new Vector2(3, 1);
         }

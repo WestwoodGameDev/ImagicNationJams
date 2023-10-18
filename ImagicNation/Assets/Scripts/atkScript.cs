@@ -13,13 +13,13 @@ public class atkScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(GameObject.Find("player").GetComponent<Transform>().localScale.x<0){
+        if(GameObject.Find("player").GetComponent<Transform>().localScale.x < 0){
             direction = 1;
         }else{
             direction = -1;
         }
-        this.transform.localScale = new Vector2(0.4f*direction,0.4f);
-        rb.velocity = new Vector2(-direction * 20,0);
+        this.transform.localScale = new Vector2(0.4f * direction, 0.4f);
+        rb.velocity = new Vector2(-direction * 20, 0);
     }
     // Update is called once per frame
     void Update()
@@ -27,13 +27,13 @@ public class atkScript : MonoBehaviour
     //    transform.Translate(Vector2.left*direction*Time.deltaTime*10);
        if(!start){
         clock += Time.deltaTime;
-        if(clock>=0.1){
+        if(clock >= 0.1){
             start = true;
         }
        }
     }
     void OnCollisionEnter2D(Collision2D col){
-        if((col.gameObject.name != "room" && col.gameObject.name != "player")||(start&&col.gameObject.name == "player"))
+        if((col.gameObject.name != "room" && col.gameObject.name != "player") || (start && col.gameObject.name == "player"))
         {        
             Debug.Log(col.gameObject.name);
             Destroy(gameObject);

@@ -15,6 +15,6 @@ public class camScript : MonoBehaviour
     void Update()
     {
         Debug.Log(cam.orthographicSize);
-        this.transform.position = player.transform.position+ new Vector3(0,0,-5);
+        this.transform.position = player.transform.position+ new Vector3(0, 0, -5);
     }
 }

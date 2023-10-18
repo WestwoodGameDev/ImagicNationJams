@@ -25,14 +25,14 @@ public class EnemyScript : MonoBehaviour
 
         //slime script
         if(type == "slime"){
-            if(cd<=0&&inRange){
+            if(cd <= 0 && inRange){
                 anim.SetBool("attack", true);
-                if(GameObject.Find("player").GetComponent<Transform>().position.x>this.transform.position.x){
+                if(GameObject.Find("player").GetComponent<Transform>().position.x > this.transform.position.x){
                     atkDir = 1;
                 }else{
                     atkDir = -1;
                 }
-                this.transform.localScale = new Vector2(0.2f*atkDir,0.2f);
+                this.transform.localScale = new Vector2(0.2f * atkDir, 0.2f);
                 cd = 2.5f;
             }else{
                 cd -= Time.deltaTime;
@@ -40,21 +40,21 @@ public class EnemyScript : MonoBehaviour
             
         }
         //slow down
-        if(rb.velocity.x>0.1f){
-            rb.velocity = new Vector2(rb.velocity.x-10*Time.deltaTime, rb.velocity.y) ;
+        if(rb.velocity.x > 0.1f){
+            rb.velocity = new Vector2(rb.velocity.x - 10 * Time.deltaTime, rb.velocity.y) ;
         }else if(rb.velocity.x<-0.1f){
-            rb.velocity = new Vector2(rb.velocity.x+10*Time.deltaTime, rb.velocity.y);
+            rb.velocity = new Vector2(rb.velocity.x + 10 * Time.deltaTime, rb.velocity.y);
         }else if(rb.velocity.x != 0){
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
 //controled by anim
     public void zlimeAttack(float time){
-        if(time <=0){
+        if(time <= 0){
             attack = 0;
         }else{
             anim.SetBool("attack", false);
-            rb.velocity = new Vector2(atkVelo*atkDir, rb.velocity.y);
+            rb.velocity = new Vector2(atkVelo * atkDir, rb.velocity.y);
         }
     }
     public void OnTriggerEnter2D(Collider2D col){
