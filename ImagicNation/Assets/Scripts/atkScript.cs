@@ -40,7 +40,7 @@ public class atkScript : MonoBehaviour
         }
     }
     void OnTriggerEnter2D(Collider2D col){
-        if(col.gameObject.name != "bounds"){
+        if(col.gameObject.name != "bounds" && col.gameObject.name != "player"){
             
             Debug.Log(col.gameObject.name);
             Destroy(gameObject);

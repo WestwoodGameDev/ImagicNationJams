@@ -38,33 +38,44 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //cannot do anything if frozen
         if(freeze>0){
             freeze-=Time.deltaTime;
         }else{
             if(freeze<0){
                 freeze = 0;
             }
+            //iFrame tickdown only if not frozen
             if(iFrame>0){
                 iFrame-=Time.deltaTime;
             }else if(iFrame<0){
                 iFrame = 0;
             }
+            //get the direction that you are pressing (horiz)
             horiz = Input.GetAxis("Horizontal");
+            //changes the direction that you are facing if you are pressing right or left
             if(horiz>0){
                 this.transform.localScale = new Vector2(0.3f,0.3f);
             }else if (horiz <0){
                 this.transform.localScale = new Vector2(-0.3f,0.3f);
-
             }
+
+            //move w/ horiz
+            rb.velocity = new Vector2(horiz*speed, rb.velocity.y);
+            //Jump if you press up key
             if (Input.GetKey("up") && canJump)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                 canJump = false;
             }
+            //
             if(horiz == 0||(rb.velocity.x>0&&horiz<0)||(rb.velocity.y<0&&horiz>0)){
                 rb.velocity = new Vector2(0,rb.velocity.y);
             }
-            rb.velocity = new Vector2(horiz*speed, rb.velocity.y);
+            //spell casting
+            if(Input.GetKeyDown("space")&&spells[0]){
+                Instantiate(fai, transform.position+ new Vector3(this.transform.localScale.x, 0, 0), transform.rotation);
+            }
         }
         
         //r key resets position
@@ -73,22 +84,20 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector2(0,0);
             rb.position = new Vector2(3,1);
         }
-        if(Input.GetKeyDown("space")&&spells[0]){
-            Instantiate(fai, transform.position+ new Vector3(this.transform.localScale.x, 0, 0), transform.rotation);
-        }
 
     }
     void OnCollisionEnter2D(Collision2D col)
     {
+        //touch grass !!!!!
         if (col.gameObject.CompareTag("floor"))
         {
             //resets jump when on the floor
             canJump = true;
         }
-        
+        //hit by an enemy
         if(col.gameObject.CompareTag("enemy") && iFrame <= 0){
             freeze = 0.2f;
-            iFrame = 2f;
+            iFrame = 1f;
             if(col.gameObject.transform.position.x>self.transform.position.x){
                 rb.velocity = new Vector2(-10,rb.velocity.y/1.5f);
             }else{
