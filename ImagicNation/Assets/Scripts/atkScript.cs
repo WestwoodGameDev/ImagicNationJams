@@ -9,6 +9,7 @@ public class atkScript : MonoBehaviour
     public float temp;
     public bool start;
     public float clock;
+    public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +19,12 @@ public class atkScript : MonoBehaviour
             direction = -1;
         }
         this.transform.localScale = new Vector2(0.4f*direction,0.4f);
-        
+        rb.velocity = new Vector2(-direction * 20,0);
     }
     // Update is called once per frame
     void Update()
     {
-       transform.Translate(Vector2.left*direction*Time.deltaTime*10);
+    //    transform.Translate(Vector2.left*direction*Time.deltaTime*10);
        if(!start){
         clock += Time.deltaTime;
         if(clock>=0.1){

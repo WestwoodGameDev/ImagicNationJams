@@ -85,15 +85,7 @@ public class PlayerScript : MonoBehaviour
             //resets jump when on the floor
             canJump = true;
         }
-        else if (col.gameObject.CompareTag("death"))
-        {
-            //death 
-            //switch to triggers?
-            rb.velocity = new Vector2(0,0);
-            freeze = 1;
-            hp--;
-            rb.position = new Vector2(3, 1);
-        }
+        
         if(col.gameObject.CompareTag("enemy") && iFrame <= 0){
             freeze = 0.2f;
             iFrame = 2f;
@@ -130,9 +122,18 @@ public class PlayerScript : MonoBehaviour
         }
     }
     void OnTriggerEnter2D(Collider2D col){
+
         if(col.gameObject.CompareTag("scroll")){
             spells[col.gameObject.GetComponent<scrollSC>().num] = true;
             Destroy(col.gameObject);
+        }else if (col.gameObject.CompareTag("death"))
+        {
+            //death 
+            //switch to triggers?
+            rb.velocity = new Vector2(0,0);
+            freeze = 1;
+            hp--;
+            rb.position = new Vector2(3, 1);
         }
     }
     void OnTriggerExit2D(Collider2D col){

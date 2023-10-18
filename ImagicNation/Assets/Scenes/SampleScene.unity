@@ -464,6 +464,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
+--- !u!50 &1479707037 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8430764650552615855, guid: b9157a24a48cbf346bf945f25f86c378, type: 3}
+  m_PrefabInstance: {fileID: 4408213171538993499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1892372203
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +637,7 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1243,6 +1248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fai'r
       objectReference: {fileID: 0}
+    - target: {fileID: 3340287103513982189, guid: b9157a24a48cbf346bf945f25f86c378, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1479707037}
     - target: {fileID: 6058519503098319299, guid: b9157a24a48cbf346bf945f25f86c378, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
