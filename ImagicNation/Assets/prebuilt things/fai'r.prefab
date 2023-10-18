@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3340287103513982189}
   - component: {fileID: 2431836668858101086}
   - component: {fileID: 8430764650552615855}
-  - component: {fileID: 5857224382835826944}
+  - component: {fileID: 8276719630230423334}
   m_Layer: 0
   m_Name: fai'r
   m_TagString: Untagged
@@ -103,6 +103,8 @@ MonoBehaviour:
   type: 
   direction: 1
   temp: 0
+  start: 0
+  clock: 0
 --- !u!58 &2431836668858101086
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -165,7 +167,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &5857224382835826944
+--- !u!95 &8276719630230423334
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

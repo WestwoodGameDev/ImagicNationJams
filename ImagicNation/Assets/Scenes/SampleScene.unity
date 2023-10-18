@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -215,6 +216,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc56eea06e9f8d6468fdfe803d2a8c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7870755818791782517}
+  cam: {fileID: 519420031}
 --- !u!1 &603810356
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,32 +464,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
---- !u!1 &1190512770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1796748174729730296, guid: b9157a24a48cbf346bf945f25f86c378, type: 3}
-  m_PrefabInstance: {fileID: 4408213171538993499}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1190512776
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190512770}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 81cb75adafed53f409feff2362bfbbd6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1892372203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,10 +1286,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1796748174729730296, guid: b9157a24a48cbf346bf945f25f86c378, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1190512776}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9157a24a48cbf346bf945f25f86c378, type: 3}
 --- !u!212 &4874554739616254193
 SpriteRenderer:
