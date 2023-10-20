@@ -466,7 +466,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -672,6 +672,7 @@ MonoBehaviour:
   attack: 0
   cd: 0
   atkVelo: 10
+  atkDir: 1
 --- !u!4 &1581267271398676452
 Transform:
   m_ObjectHideFlags: 0
@@ -698,7 +699,7 @@ GameObject:
   - component: {fileID: 535547720259342674}
   - component: {fileID: 6221742264657818980}
   - component: {fileID: 207867979622372796}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spick
   m_TagString: death
   m_Icon: {fileID: 0}
@@ -1591,7 +1592,7 @@ GameObject:
   - component: {fileID: 197689210505385416}
   - component: {fileID: 1196178082638246940}
   - component: {fileID: 7843604330027149384}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: zlime
   m_TagString: enemy
   m_Icon: {fileID: 0}
