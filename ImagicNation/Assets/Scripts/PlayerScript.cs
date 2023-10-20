@@ -112,6 +112,17 @@ public class PlayerScript : MonoBehaviour
             //resets jump when on the floor
             canJump = true;
         } 
+        
+    }
+    void OnCollisionExit2D(Collision2D col){
+
+        if (col.gameObject.CompareTag("floor"))
+        {
+            //resets jump when on the floor
+            canJump = false;
+        }
+    }
+    void OnTriggerStay2D(Collider2D col){
         if(col.gameObject.CompareTag("enemy") && iFrame <= 0){
             freeze = 0.2f;
             iFrame = 1f;
@@ -120,14 +131,6 @@ public class PlayerScript : MonoBehaviour
             }else{
                 rb.velocity = new Vector2(10, rb.velocity.y / 1.5f);
             }
-        }
-    }
-    void OnCollisionExit2D(Collision2D col){
-
-        if (col.gameObject.CompareTag("floor"))
-        {
-            //resets jump when on the floor
-            canJump = false;
         }
     }
     void OnTriggerEnter2D(Collider2D col){

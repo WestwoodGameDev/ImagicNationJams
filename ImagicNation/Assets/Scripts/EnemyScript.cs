@@ -60,7 +60,7 @@ public class EnemyScript : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D col){
         if(col.gameObject.CompareTag("attack")){
             if(col.gameObject.GetComponent<atkScript>().type == "fire"){
-                rb.velocity = new Vector2(col.gameObject.GetComponent<atkScript>().direction*7.5f, rb.velocity.y);
+                rb.velocity = new Vector2(col.gameObject.GetComponent<atkScript>().direction*-7.5f, rb.velocity.y);
             }
 
         }
