@@ -72,7 +72,7 @@ public class PlayerScript : MonoBehaviour
             }
             //spell casting
             if(Input.GetKeyDown("space") && spells[0]){
-                Instantiate(fai, transform.position + new Vector3(this.transform.localScale.x, 0, 0), transform.rotation);
+                Instantiate(fai, transform.position + new Vector3(this.transform.localScale.x*2f, 0, 0), transform.rotation);
             }
             //move w/ horiz
             rb.velocity = new Vector2(horiz * speed, rb.velocity.y);

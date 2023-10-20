@@ -57,6 +57,14 @@ public class EnemyScript : MonoBehaviour
             rb.velocity = new Vector2(atkVelo * atkDir, rb.velocity.y);
         }
     }
+    public void OnCollisionEnter2D(Collision2D col){
+        if(col.gameObject.CompareTag("attack")){
+            if(col.gameObject.GetComponent<atkScript>().type == "fire"){
+                rb.velocity = new Vector2(col.gameObject.GetComponent<atkScript>().direction*7.5f, rb.velocity.y);
+            }
+
+        }
+    }
     public void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.tag == "death"){
             Destroy(gameObject);
