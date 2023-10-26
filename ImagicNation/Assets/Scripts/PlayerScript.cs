@@ -23,8 +23,11 @@ public class PlayerScript : MonoBehaviour
     public GameObject self;
     public Rigidbody2D rb;
     //items
+
+    //spells: [plant, water, light, fire, ice, lightning] 
     public bool[] spells = new bool[6];
-    public GameObject fai;
+    //spell list
+    public GameObject[] spellPrefabs = new GameObject[6];
     // fai, ???
     //controls
     public float horiz;
@@ -51,8 +54,15 @@ public class PlayerScript : MonoBehaviour
             }else if(iFrame < 0){
                 iFrame = 0;
             }
-            //get the direction that you are pressing (horiz)
-            horiz = Input.GetAxis("Horizontal");
+            //get the direction that you are pressing 
+            horiz = 0;
+            if(Input.GetKey("a")){
+                horiz -=1;
+            }
+            if(Input.GetKey("d")){
+                horiz += 1;
+            }
+
             //changes the direction that you are facing if you are pressing right or left
             if(horiz > 0){
                 this.transform.localScale = new Vector2(0.3f, 0.3f);
@@ -61,23 +71,26 @@ public class PlayerScript : MonoBehaviour
             }
 
             //Jump if you press up key
-            if (Input.GetKey("up") && canJump)
+            if (Input.GetKey("space") && canJump)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                 canJump = false;
             }
-            //
+            //if not moving, or going in an opposite direction from the velocity
             if(horiz == 0 || (rb.velocity.x > 0 && horiz < 0) || (rb.velocity.y < 0 && horiz > 0)){
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
             //spell casting
-            if(Input.GetKeyDown("space") && spells[0]){
-                Instantiate(fai, transform.position + new Vector3(this.transform.localScale.x*2f, 0, 0), transform.rotation);
+            if(Input.GetMouseButtonDown(1) && spells[0]){
+                Instantiate(spellPrefabs[0], transform.position + new Vector3(this.transform.localScale.x*2f, 0, 0), transform.rotation);
             }
             //move w/ horiz
             rb.velocity = new Vector2(horiz * speed, rb.velocity.y);
         }
-        
+        //enemies are pass throughable if you get hit
+        if(iFrame > 0){
+            Debug.Log(this.gameObject.GetComponent<BoxCollider2D>().excludeLayers);
+        }
         //r key resets position
         if (Input.GetKey("r"))
         {
@@ -127,11 +140,10 @@ public class PlayerScript : MonoBehaviour
             freeze = 0.2f;
             iFrame = 1f;
             if(col.gameObject.transform.position.x>self.transform.position.x){
-                rb.velocity = new Vector2(-10, rb.velocity.y / 1.5f);
+                rb.velocity = new Vector2(-10+col.gameObject.GetComponent<Rigidbody2D>().velocity.x, rb.velocity.y / 1.5f+2);
             }else{
-                rb.velocity = new Vector2(10, rb.velocity.y / 1.5f);
+                rb.velocity = new Vector2(10+col.gameObject.GetComponent<Rigidbody2D>().velocity.x, rb.velocity.y / 1.5f+2);
             }
-        }
     }
     void OnTriggerEnter2D(Collider2D col){
         
@@ -148,6 +160,7 @@ public class PlayerScript : MonoBehaviour
             freeze = 1;
             hp--;
             rb.position = new Vector2(3, 1);
+        }
         }
     }
     void OnTriggerExit2D(Collider2D col){
