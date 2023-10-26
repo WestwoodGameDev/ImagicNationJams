@@ -734,7 +734,13 @@ MonoBehaviour:
   self: {fileID: 7870755818791782517}
   rb: {fileID: 751802480584191193}
   spells: 000000000000
-  fai: {fileID: 1796748174729730296, guid: b9157a24a48cbf346bf945f25f86c378, type: 3}
+  spellPrefabs:
+  - {fileID: 1796748174729730296, guid: b9157a24a48cbf346bf945f25f86c378, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   horiz: 0
 --- !u!114 &1196178082638246940
 MonoBehaviour:
@@ -1620,7 +1626,7 @@ GameObject:
   - component: {fileID: 1196178082638246940}
   - component: {fileID: 7843604330027149384}
   - component: {fileID: 7843604330027149385}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: zlime
   m_TagString: enemy
   m_Icon: {fileID: 0}
