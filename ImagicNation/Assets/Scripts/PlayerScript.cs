@@ -44,6 +44,7 @@ public class PlayerScript : MonoBehaviour
         //cannot do anything if frozen
         if(freeze > 0){
             freeze -= Time.deltaTime;
+            Physics2D.IgnoreLayerCollision(9, 8, true);
         }else{
             if(freeze < 0){
                 freeze = 0;
@@ -88,8 +89,8 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector2(horiz * speed, rb.velocity.y);
         }
         //enemies are pass throughable if you get hit
-        if(iFrame > 0){
-            Debug.Log(this.gameObject.GetComponent<BoxCollider2D>().excludeLayers);
+        if(iFrame<=0){
+            Physics2D.IgnoreLayerCollision(9,8,false);
         }
         //r key resets position
         if (Input.GetKey("r"))
