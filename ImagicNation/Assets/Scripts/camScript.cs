@@ -14,7 +14,7 @@ public class camScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(cam.orthographicSize);
+        // Debug.Log(cam.orthographicSize);
         this.transform.position = player.transform.position+ new Vector3(0, 0, -5);
     }
 }

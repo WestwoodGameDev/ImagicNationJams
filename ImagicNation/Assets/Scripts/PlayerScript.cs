@@ -137,14 +137,15 @@ public class PlayerScript : MonoBehaviour
         }
     }
     void OnTriggerStay2D(Collider2D col){
-        if(col.gameObject.CompareTag("enemy") && iFrame <= 0){
-            freeze = 0.2f;
-            iFrame = 1f;
-            if(col.gameObject.transform.position.x>self.transform.position.x){
-                rb.velocity = new Vector2(-10+col.gameObject.GetComponent<Rigidbody2D>().velocity.x, rb.velocity.y / 1.5f+2);
-            }else{
-                rb.velocity = new Vector2(10+col.gameObject.GetComponent<Rigidbody2D>().velocity.x, rb.velocity.y / 1.5f+2);
-            }
+    //     if(col.gameObject.CompareTag("enemy") && iFrame <= 0){
+    //         freeze = 0.2f;
+    //         iFrame = 1f;
+    //         if(col.gameObject.transform.position.x>self.transform.position.x){
+    //             rb.velocity = new Vector2(-10+col.gameObject.GetComponent<Rigidbody2D>().velocity.x, rb.velocity.y / 1.5f+2);
+    //         }else{
+    //             rb.velocity = new Vector2(10+col.gameObject.GetComponent<Rigidbody2D>().velocity.x, rb.velocity.y / 1.5f+2);
+    //         }
+    // }
     }
     void OnTriggerEnter2D(Collider2D col){
         
@@ -152,17 +153,17 @@ public class PlayerScript : MonoBehaviour
         if(col.gameObject.CompareTag("scroll")){
             spells[col.gameObject.GetComponent<scrollSC>().num] = true;
             Destroy(col.gameObject);
-        }else if (col.gameObject.CompareTag("death"))
-        {
-            //death 
-            Debug.Log(col.gameObject.name);
-            //switch to triggers?
-            rb.velocity = new Vector2(0, 0);
-            freeze = 1;
-            hp--;
-            rb.position = new Vector2(3, 1);
         }
-        }
+        // else if (col.gameObject.CompareTag("death"))
+    //     {
+    //         //death 
+    //         Debug.Log(col.gameObject.name);
+    //         //switch to triggers?
+    //         rb.velocity = new Vector2(0, 0);
+    //         freeze = 1;
+    //         hp--;
+    //         rb.position = new Vector2(3, 1);
+    //     }
     }
     void OnTriggerExit2D(Collider2D col){
         
@@ -175,20 +176,4 @@ public class PlayerScript : MonoBehaviour
             rb.position = new Vector2(3, 1);
         }
     }
-    void FixedUpdate()
-    {
-        // Cast a ray straight down.
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
-
-        // If it hits something...
-        if (hit.collider != null)
-        {
-            // Calculate the distance from the surface and the "error" relative
-            // to the floating height.
-            float distance = Mathf.Abs(hit.point.y - transform.position.y);
-            Debug.Log(distance);
-            
-        }
-    }
-
 }
