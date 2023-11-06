@@ -29,7 +29,12 @@ public class PlayerScript : MonoBehaviour
     //spell list
     public GameObject[] spellPrefabs = new GameObject[6];
     // fai, ???
-    //controls
+    /*
+    *ideas
+    *like a corrupted form of things (opposite of the color wheel/"high contrast mode")
+     
+     */
+    //controls 
     public float horiz;
 
     // Start is called before the first frame update
