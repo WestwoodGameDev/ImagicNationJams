@@ -154,7 +154,6 @@ public class PlayerScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D col){
         
-            Debug.Log(col.gameObject.name);
         if(col.gameObject.CompareTag("scroll")){
             spells[col.gameObject.GetComponent<scrollSC>().num] = true;
             Destroy(col.gameObject);
@@ -162,7 +161,6 @@ public class PlayerScript : MonoBehaviour
         // else if (col.gameObject.CompareTag("death"))
     //     {
     //         //death 
-    //         Debug.Log(col.gameObject.name);
     //         //switch to triggers?
     //         rb.velocity = new Vector2(0, 0);
     //         freeze = 1;
@@ -172,12 +170,10 @@ public class PlayerScript : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D col){
         
-            Debug.Log(col.gameObject.name);
         if(col.gameObject.name == "bounds"){
             rb.velocity = new Vector2(0, 0);
             freeze = 0.5f;
             hp--;
-            Debug.Log(col.gameObject.name);
             rb.position = new Vector2(3, 1);
         }
     }

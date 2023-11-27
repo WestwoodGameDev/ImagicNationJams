@@ -9,7 +9,12 @@ public class atkScript : MonoBehaviour
     public float temp;
     public bool start;
     public float clock;
+
+    public bool done;
+
     public Rigidbody2D rb;
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,25 +36,27 @@ public class atkScript : MonoBehaviour
             start = true;
         }
        }
+       if(done){
+            rb.velocity = new Vector2(0,0);
+       }
     }
     void OnCollisionEnter2D(Collision2D col){
         if((col.gameObject.name != "room" && col.gameObject.name != "player") || (start && col.gameObject.name == "player"))
         {        
-            Debug.Log(col.gameObject.name);
-            Destroy(gameObject);
+                anim.SetBool("explode", true);
+                done = true;
         }
     }
     void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.name != "bounds" && col.gameObject.name != "player"){
-            
-            Debug.Log(col.gameObject.name);
-            Destroy(gameObject);
+                anim.SetBool("explode", true);
+                done = true;
         }
     }
     void OnTriggerExit2D(Collider2D col){
         if(col.gameObject.name == "bounds"){
-            Debug.Log(col.gameObject.name);
             Destroy(gameObject);
         }
     }
+    void die(){ Destroy(gameObject); }
 }
