@@ -9,6 +9,7 @@ TagManager:
   - enemy
   - scroll
   - attack
+  - barrier
   layers:
   - Default
   - TransparentFX

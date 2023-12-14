@@ -22,12 +22,18 @@ public class barrierSC : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    void OnCollisionEnter2D(Collision2D col){
+        Debug.Log("col.gameObject.name");
 
+    }
     void onTriggerEnter(Collider2D col){
-        if(col.gameObject.CompareTag("attack")){
-            if(col.gameObject.GetComponent<atkScript>().type == "fire"){
-                go = true;
-            }
-        }
+        
+        Debug.Log("col.gameObject.name");
+        // if(col.gameObject.CompareTag("attack")){
+        //     if(col.gameObject.GetComponent<atkScript>().type == "fire"){
+                
+        //         go = true;
+        //     }
+        // }
     }
 }

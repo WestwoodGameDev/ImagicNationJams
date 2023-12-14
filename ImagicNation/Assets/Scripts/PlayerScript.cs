@@ -11,6 +11,8 @@ public class PlayerScript : MonoBehaviour
     fireball
     
     */
+    //goofy
+    public bool hax = false;
     //player values
     public int speed = 25;
     public int jumpPower = 20;
@@ -56,6 +58,7 @@ public class PlayerScript : MonoBehaviour
             }
             //iFrame tickdown only if not frozen
             if(iFrame > 0){
+                Physics2D.IgnoreLayerCollision(9, 8, true);
                 iFrame -= Time.deltaTime;
             }else if(iFrame < 0){
                 iFrame = 0;
@@ -77,7 +80,7 @@ public class PlayerScript : MonoBehaviour
             }
 
             //Jump if you press up key
-            if (Input.GetKey("space") && canJump)
+            if (Input.GetKey("space") && (canJump||hax)) 
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                 canJump = false;
@@ -87,7 +90,7 @@ public class PlayerScript : MonoBehaviour
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
             //spell casting
-            if(Input.GetMouseButtonDown(1) && spells[0]){
+            if(Input.GetMouseButtonDown(1) && (spells[0]||hax)){
                 Instantiate(spellPrefabs[0], transform.position + new Vector3(this.transform.localScale.x*2f, 0, 0), transform.rotation);
             }
             //move w/ horiz
@@ -98,7 +101,7 @@ public class PlayerScript : MonoBehaviour
             Physics2D.IgnoreLayerCollision(9,8,false);
         }
         //r key resets position
-        if (Input.GetKey("r"))
+        if (hax&&Input.GetKey("r"))
         {
             rb.velocity = new Vector2(0, 0);
             rb.position = new Vector2(3, 1);
@@ -115,7 +118,7 @@ public class PlayerScript : MonoBehaviour
         }
         //hit by an enemy
         if(col.gameObject.CompareTag("enemy") && iFrame <= 0){
-            freeze = 0.2f;
+            if(!hax){freeze = 0.2f;}
             iFrame = 1f;
             if(col.gameObject.transform.position.x>self.transform.position.x){
                 rb.velocity = new Vector2(-10, rb.velocity.y / 1.5f);
@@ -170,7 +173,7 @@ public class PlayerScript : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D col){
         
-        if(col.gameObject.name == "bounds"){
+        if(col.gameObject.name == "bounds"&&!hax){
             rb.velocity = new Vector2(0, 0);
             freeze = 0.5f;
             hp--;

@@ -105,6 +105,7 @@ MonoBehaviour:
   temp: 0
   start: 0
   clock: 0
+  done: 0
   rb: {fileID: 8430764650552615855}
   anim: {fileID: 8276719630230423334}
 --- !u!58 &2431836668858101086

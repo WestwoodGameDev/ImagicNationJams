@@ -34,23 +34,31 @@ public class atkScript : MonoBehaviour
         clock += Time.deltaTime;
         if(clock >= 0.1){
             start = true;
+            clock = 0;
         }
-       }
-       if(done){
-            rb.velocity = new Vector2(0,0);
-       }
+        }
+    //    if(done){
+    //         clock+= Time.deltaTime;
+    //         if(clock>=0.05){
+    //             rb.velocity = new Vector2(0,0);
+    //             anim.SetBool("explode", true);
+    //             done = false;
+    //         }
+    //    }
     }
     void OnCollisionEnter2D(Collision2D col){
-        if((col.gameObject.name != "room" && col.gameObject.name != "player") || (start && col.gameObject.name == "player"))
+        if((col.gameObject.name != "bounds" && col.gameObject.name != "player") || (start && col.gameObject.name == "player"))
         {        
                 anim.SetBool("explode", true);
                 done = true;
+                rb.velocity = new Vector2(0,0);
         }
     }
     void OnTriggerEnter2D(Collider2D col){
-        if(col.gameObject.name != "bounds" && col.gameObject.name != "player"){
+        if(col.gameObject.name != "bounds" && col.gameObject.name != "player" &&  !col.gameObject.CompareTag("attack")){
                 anim.SetBool("explode", true);
                 done = true;
+                rb.velocity = new Vector2(0,0);
         }
     }
     void OnTriggerExit2D(Collider2D col){
